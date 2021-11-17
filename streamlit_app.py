@@ -5,20 +5,23 @@ import pandas as pd
 import streamlit as st
 
 """
-# Welcome to Streamlit!
+# Welcome to the Classifier Explorer!
 
-Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:
+You can explore various algorithms and use them to classify spam messages from non-spam messages. 
 
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
-
-In the meantime, below is an example of what you can do with just a few lines of code:
+You will find an implementation of a logarithmic multinomial Naive Bayes
 """
 
 
 with st.echo(code_location='below'):
     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
     num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
+
+with left_column:
+    chosen = st.radio(
+        'Choose an Algorithm:'
+        ("Naive Bayes w/ Log Smoothing", "NB", "K Neighbours")
+    
 
     Point = namedtuple('Point', 'x y')
     data = []
